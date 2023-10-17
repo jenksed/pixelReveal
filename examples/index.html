@@ -1,14 +1,39 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Pixelate.js</title>
-		<style type="text/css">
-			img, canvas { border:1px dashed; }
-		</style>
-	</head>
-	<body>
-		<img src="http://i.imgur.com/E7iu3UI.jpg" width="630" height="583" data-pixelate>
-		<script src="../dist/pixelate.js"></script>
-	</body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Reveal Example</title>
+    <style type="text/css">
+        img, canvas {
+            border: 1px dashed;
+            cursor: pointer; /* Added to indicate interactivity */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Updated data attributes for new options and added example image -->
+<img src="example-image.png" width="900" height="199" 
+     data-pixelate 
+     data-value="0.05" 
+     data-reveal="true" 
+     data-reveal-on-click="true">
+
+<!-- Updated script source to point to the new pixel-reveal library -->
+<script src="../dist/pixelate-v2.js"></script>
+
+<!-- Added initialization script for pixel-reveal -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const images = document.querySelectorAll('img[data-pixelate]');
+        images.forEach(img => new Pixelate(img, {
+            value: parseFloat(img.dataset.value),
+            reveal: img.dataset.reveal === 'true',
+            revealOnClick: img.dataset.revealOnClick === 'true'
+        }));
+    });
+</script>
+
+</body>
 </html>

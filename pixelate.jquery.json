@@ -1,10 +1,10 @@
 {
-	"name": "pixelate",
-	"version": "1.0.3",
-	"title": "Pixelate.js - Pixelate any image with ease",
+	"name": "pixelate-v2",
+	"version": "1.0.0",
+	"title": "pixelReveal.js - Interactively Reveal Pixelated Images",
 	"author": {
-		"name": "43081j",
-		"url": "https://43081j.github.com/"
+		"name": "Joshua Jenks",
+		"url": "https://github.com/jenksed"
 	},
 	"licenses": [
 		{
@@ -12,10 +12,12 @@
 			"url": "http://opensource.org/licenses/MIT"
 		}
 	],
-	"dependencies": {
-		"jquery": ">=1.6"
-	},
-	"description": "Plugin to easily pixelate any images and optionally reveal them on hover/click.",
-	"keywords": ["pixelate", "censor", "hide", "reveal"],
-	"demo": "http://43081j.github.io/pixelate/"
+	"dependencies": {},
+	"description": "A JavaScript library to pixelate and interactively reveal images, offering an enhanced user experience by revealing images pixel by pixel on hover.",
+	"keywords": ["pixelate", "reveal", "interactive", "image", "hover", "pixelReveal"],
+	"demo": "https://github.com/jenksed/pixelReveal#readme",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jenksed/pixelReveal.git"
+	}
 }
