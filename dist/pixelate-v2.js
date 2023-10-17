@@ -105,30 +105,25 @@ class Pixelate {
      * @param {Event} event - The mousemove event.
      */
     reveal(event) {
-        const imgWidth = this.element.width;
-        const imgHeight = this.element.height;
-        const pixelatedWidth = imgWidth * this.options.value;
-        const pixelatedHeight = imgHeight * this.options.value;
-    
-        // Get the mouse position relative to the canvas
-        const rect = this.canvas.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-    
-        // Calculate the area to reveal based on the mouse position
-        const revealRadius = 20;  // Adjust the radius as needed
-        const startX = Math.max(0, x - revealRadius);
-        const startY = Math.max(0, y - revealRadius);
-        const endX = Math.min(imgWidth, x + revealRadius);
-        const endY = Math.min(imgHeight, y + revealRadius);
-    
-        // Draw the pixelated image first
-        this.ctx.drawImage(this.element, 0, 0, pixelatedWidth, pixelatedHeight);
-        this.ctx.drawImage(this.canvas, 0, 0, pixelatedWidth, pixelatedHeight, 0, 0, imgWidth, imgHeight);
-    
-        // Then overlay the revealed area on top of the pixelated image
-        this.ctx.drawImage(this.element, startX, startY, endX - startX, endY - startY, startX, startY, endX - startX, endY - startY);
+      const imgWidth = this.element.width;
+      const imgHeight = this.element.height;
+  
+      // Get the mouse position relative to the canvas
+      const rect = this.canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+  
+      // Calculate the area to reveal based on the mouse position
+      const revealRadius = 20;  // Adjust the radius as needed
+      const startX = Math.max(0, x - revealRadius);
+      const startY = Math.max(0, y - revealRadius);
+      const endX = Math.min(imgWidth, x + revealRadius);
+      const endY = Math.min(imgHeight, y + revealRadius);
+  
+      // Only overlay the revealed area on top of the pixelated image
+      this.ctx.drawImage(this.element, startX, startY, endX - startX, endY - startY, startX, startY, endX - startX, endY - startY);
     }
+  
     
     /**
      * Pixelates the image.
